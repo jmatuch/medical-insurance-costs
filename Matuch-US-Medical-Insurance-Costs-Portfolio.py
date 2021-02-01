@@ -192,10 +192,3 @@ def smoker_percent(smokers, population):
 
 smoker_percent_data = smoker_percent(smoker_data, population_data)
 print(smoker_percent_data)
-
-
-# In[ ]:
-
-
-
-
