@@ -3,20 +3,9 @@
 
 # # U.S. Medical Insurance Costs
 
-# In[142]:
-
-
 import csv
 
-
-# In[143]:
-
-
 insurance = []
-
-
-# In[144]:
-
 
 with open('insurance.csv', newline='') as csvfile:
     holder = csv.DictReader(csvfile)
@@ -47,18 +36,10 @@ with open('insurance.csv', newline='') as csvfile:
         a['charges'] = float(row['charges'])
         insurance.append(a)
 
-
-# In[145]:
-
-
 get_ipython().run_line_magic('matplotlib', 'inline')
 import matplotlib.pyplot as plt
 plt.style.use('seaborn-whitegrid')
 import numpy as np
-
-
-# In[146]:
-
 
 age_bmi = []
 for item in insurance:
@@ -67,18 +48,10 @@ for item in insurance:
     temp.append(item['bmi'])
     age_bmi.append(temp)
 
-
-# In[147]:
-
-
 for item in age_bmi:
     x = item[0]
     y = item[1]
     plt.plot(x, y, 'o', color='black');
-
-
-# In[148]:
-
 
 class Person:
     def __init__(self, age, sex, bmi, children, smoker, region, charges):
@@ -93,15 +66,7 @@ class Person:
         rep = str(self.age) + '_' + str(self.sex)
         return rep
 
-
-# In[149]:
-
-
 John = Person(5, 0, 22, 3, 0, 3, 14000)
-
-
-# In[150]:
-
 
 def smoker_sort(dictionary):
     M_smokers_northeast = 0
@@ -145,10 +110,6 @@ def smoker_sort(dictionary):
     
 smoker_data = smoker_sort(insurance)
 
-
-# In[151]:
-
-
 def region_population(dictionary):
     M_northeast = 0
     F_northeast = 0
@@ -182,10 +143,6 @@ def region_population(dictionary):
     return [M_northeast, F_northeast, M_northwest, F_northwest, M_southwest, F_southwest, M_southeast, F_southeast]
     
 population_data = region_population(insurance)
-
-
-# In[152]:
-
 
 def smoker_percent(smokers, population):
     return [int(x/y*100) for x,y in zip(smokers,population)]
